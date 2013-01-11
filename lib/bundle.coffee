@@ -122,8 +122,9 @@ class Bundle
           str += fs.readFileSync(file.file, 'utf-8').trim('\n') + '\n'
 
       str = @minify(str)
-      hash = crypto.createHash('md5').update(str).digest('hex')
-      filepath = "#{@options.staticRoot}/generated/bundle/#{hash.substring(0, 7)}_#{namespace}#{@fileExtension}"
+      # hash = crypto.createHash('md5').update(str).digest('hex')
+      # filepath = "#{@options.staticRoot}/generated/bundle/#{hash.substring(0, 7)}_#{namespace}#{@fileExtension}"
+      filepath = "#{@options.staticRoot}/generated/bundle/#{namespace}#{@fileExtension}"
 
       writeToFile(filepath, str)
 
